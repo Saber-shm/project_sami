@@ -1,0 +1,30 @@
+info client:
+     -Nom 
+     -Prénom
+     -Adresse
+     -CP
+     -Localité
+     -N° GSM
+     -N° TEL
+     -Email
+     -Nom de société
+     -Forme juridique
+     -Date de visite
+     -Date de signature
+     -EAN 54145
+     -N° Compte
+     -BIC
+     -GRD
+     -N° Compteur
+     -N°TVA
+-Info address:
+    -Adresse de facturation:
+        -Adresse
+        -CP
+        -Localité
+   -Adresse de Livraison:
+        -Adresse
+        -CP
+        -Localité
+
+---

@@ -1,0 +1,41 @@
+{%extends 'commercial_base.html'%}
+
+{%block content%}
+<br>
+<h1 align = center>Choisir une methode:</h1>
+<hr>
+<div align = center>
+<br>
+<div class="col-xl-3 col-md-6" >
+    <div class="card bg-primary text-white mb-4">
+        <div class="card-body">Recherche par Numero de telephone</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="{% url 'commercial_search_form' 'pn'%}">Faire une recherche</a>
+            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+
+</div>
+<br>
+<div class="col-xl-3 col-md-6" >
+    <div class="card bg-primary text-white mb-4">
+        <div class="card-body">Recherche par Email</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="{%url 'commercial_search_form' 'email' %}">Faire une recherche</a>
+            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+
+</div>
+<div class="col-xl-3 col-md-6" >
+    <div class="card bg-primary text-white mb-4">
+        <div class="card-body">Recherche par Nom </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="{%url 'commercial_search_form' 'nom'%}">Faire une recherche</a>
+            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+ 
+</div>
+</div>
+{%endblock content%}

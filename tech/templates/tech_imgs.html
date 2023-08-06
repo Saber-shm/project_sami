@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{%extends 'tech_base.html'%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sami</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .image-item {
+            flex: 1 1 calc(33.33% - 20px);
+            max-width: calc(33.33% - 20px);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    {%block content%}
+    <br>
+    <h1 align = center>Photos:</h1>
+    <hr>
+    <div class="image-container">
+        {%for i in data%}
+        <div class="image-item" align = center>
+            {%if i.pic%}
+            <img src="{{i.pic.url}}" alt="Image 1" width="350">
+            <br>
+            Ajouter par:{{i.posted_by}}
+            <br><br>
+            <a class="btn btn-danger" href = "{%url 'tech_delete_img' i.id%}">Suprimmer</a>
+            {%endif%}
+            <hr>
+        </div>
+        {%endfor%}
+    {%endblock content%}
+    </div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+{% extends 'commercial_base.html' %}
+
+{% block content %}
+<style>
+    .info-container {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .info-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .btn-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-container button {
+        margin-right: 10px;
+    }
+
+    .detail-section {
+        margin-bottom: 20px;
+    }
+
+    .detail-title {
+        font-weight: bold;
+    }
+
+    .email-section {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .email-left,
+    .email-right {
+        flex-basis: 48%;
+    }
+    .email-right p{
+        color: rgb(15, 15, 190);
+    }
+</style>
+
+<div class="info-container">
+    <div class="info-header">
+        <h1>Information sur l'ordre de {{ data.nom }} {{ data.prenom }}:</h1>
+        <hr>
+    </div>
+    <div class="btn-container">
+        <a class="btn btn-primary" href="{% url 'commercial_edit_ordre' data.id %}">Modifier</a>
+        <a class="btn btn-primary" href = "{%url 'commercial_add_img' data.id%}">Ajouter des photos</a>
+        <br>
+<br>
+        <a class="btn btn-primary" href = "{%url 'commercial_add_remarque' data.id%}">Ajouter une remarque</a>
+        <br>
+        <br>
+        <a class="btn btn-primary" href = "{%url 'commercial_see_remarque' data.id%}">Voir remarques</a>
+
+        <br>
+        <br>
+        <a class="btn btn-primary" href="{%url 'commercial_imgs' data.id%}">Voir les photos</a>
+        <a class="btn btn-danger" href="{% url 'delete_ordre2' data.id %}">Supprimer</a>
+        <br><br>
+        <a class="btn btn-success" href= "{%url 'generate_pdf' data.id%}">Télécharger Fich de projet</a>
+    </div>
+    <hr>
+    <div class="email-section">
+        <div class="email-left">
+            <p class="detail-title">Posté par:</p>
+    
+            <p class="detail-title">Nom:</p>
+            <p class="detail-title">Prénom:</p>
+            <p class="detail-title">Adresse:</p>
+            <p class="detail-title">CP:</p>
+            <p class="detail-title">Localité:</p>
+            <p class="detail-title">N° GSM:</p>
+            <p class="detail-title">N° TEL:</p>
+            <p class="detail-title">Email:</p>
+            <p class="detail-title">Nom de société:</p>
+            <p class="detail-title">Forme juridique:</p>
+            <p class="detail-title">Date de visite:</p>
+            <p class="detail-title">Date de signature:</p>
+            <p class="detail-title">EAN 54145:</p>
+            <p class="detail-title">N° Compte:</p>
+            <p class="detail-title">BIC:</p>
+            <p class="detail-title">GRD:</p>
+            <p class="detail-title">N° Compteur:</p>
+            <p class="detail-title">N° TVA:</p>
+            <p class="detail-title">Adresse de Facturation:</p>
+            <p class="detail-title">CP Facturation:</p>
+            <p class="detail-title">Localité Facturation:</p>
+            <p class="detail-title">Adresse de Livraison:</p>
+            <p class="detail-title">CP Livraison:</p>
+            <p class="detail-title">Localité Livraison:</p>
+            <p class="detail-title">Remarque:</p>
+            <p class="detail-title">Nombre PPV:</p>
+            <p class="detail-title">Type PPV:</p>
+            <p class="detail-title">Nombre de range PPV:</p>
+            <p class="detail-title">Nombre pan de toiture:</p>
+            <p class="detail-title">Nombre PPV Toiture:</p>
+            <p class="detail-title">Toiture:</p>
+            <p class="detail-title">Sous-toiture:</p>
+            <p class="detail-title">Type de corniche:</p>
+            <p class="detail-title">Orientation:</p>
+            <p class="detail-title">Hauteur sous corniche:</p>
+            <p class="detail-title">Si de 7m nacelle:</p>
+            <p class="detail-title">État du toit:</p>
+            <p class="detail-title">Les panneaux doivent être installés:</p>
+            <p class="detail-title">Accès par l'arrière pour passé:</p>
+            <p class="detail-title">Si pas d'accès, décrire la situation:</p>
+            <p class="detail-title">Accès libre le jour du chantier:</p>
+            <p class="detail-title">Nombre PPV Toiture 3:</p>
+            <p class="detail-title">Type de compteur:</p>
+            <p class="detail-title">Onduleurs:</p>
+            <p class="detail-title">Nombre d'optimiseur:</p>
+            <p class="detail-title">Enphase:</p>
+            <p class="detail-title">Gaine technique présente:</p>
+            <p class="detail-title">Espace près du coffret pour onduleur même pièce:</p>
+            <p class="detail-title">État de l'installation:</p>
+            <p class="detail-title">Prise de terre contrôlée les 5 dernières années:</p>
+            <p class="detail-title">Présence différentiel général:</p>
+            <p class="detail-title">Passage de câble, nombre de pièces à traverser:</p>
+            <p class="detail-title">Coffret 20 cm disponible:</p>
+            <p class="detail-title">Tranche:</p>
+            <p class="detail-title">Nombre de mètre de tranche:</p>
+            <p class="detail-title">Le client se charge de gaine:</p>
+            <p class="detail-title">Nombre de mètres entre onduleur et panneaux:</p>
+            <p class="detail-title">Le client souhaite-t-il le monitoring:</p>
+            <p class="detail-title">Le modem est-il dans la même pièce que l'onduleur:</p>
+            <p class="detail-title">Nombre de mètres du modem à l'onduleur:</p>
+            <p class="detail-title">Le projet sera financé par:</p>
+            <p class="detail-title">Condition de paiement:</p>
+            <p class="detail-title">Date de la VT:</p>
+            <p class="detail-title">VT effectuée par:</p>
+            <p class="detail-title">Commentaire technicien:</p>
+            <p class="detail-title">Statut VT:</p>
+            <p class="detail-title">Coffret général conforme:</p>
+            <p class="detail-title">Ajout coffret supplémentaire:</p>
+            <p class="detail-title">Type de compteur (2):</p>
+            <p class="detail-title">Différentiel général:</p>
+            <p class="detail-title">Prévoir un différentiel général:</p>
+            <p class="detail-title">Limiteur:</p>
+            <p class="detail-title">Prévoir un limiteur:</p>
+            <p class="detail-title">Test de la terre:</p>
+            <p class="detail-title">Nombre de mètre de câble à prévoir:</p>
+            <p class="detail-title">Monitoring:</p>
+            <p class="detail-title">Modem est dans la même pièce que l'onduleur:</p>
+            <p class="detail-title">Analyse modem:</p>
+            <p class="detail-title">Type de toit prévu:</p>
+            <p class="detail-title">Type toiture prévu à la VT:</p>
+            <p class="detail-title">Nombre de PPV:</p>
+            <p class="detail-title">Nombre de PPV à la VT:</p>
+            <p class="detail-title">PPV en portrait:</p>
+            <p class="detail-title">PPV en paysage:</p>
+            <p class="detail-title">PPV en toiture plate:</p>
+            <p class="detail-title">PPV en chevalet jardin:</p>
+            <p class="detail-title">PPV en structure jardin:</p>
+            <p class="detail-title">Sous-toiture (2):</p>
+            <p class="detail-title">Le client a des ardoises/tuiles de rechange:</p>
+            <!-- Add other personal details -->
+        </div>
+        <div class="email-right">
+            <p>{{ data.posted_by }}</p>
+    
+            <p>{{ data.nom }}</p>
+            <p>{{ data.prenom }}</p>
+            <p>{{ data.adresse }}</p>
+            <p>{{ data.cp }}</p>
+            <p>{{ data.localite }}</p>
+            <p>{{ data.ngsm }}</p>
+            <p>{{ data.ntel }}</p>
+            <p>{{ data.email }}</p>
+            <p>{{ data.nom_de_societe }}</p>
+            <p>{{ data.forme_juridique }}</p>
+            <p>{{ data.date_de_visite }}</p>
+            <p>{{ data.date_de_signature }}</p>
+            <p>{{ data.ean54145 }}</p>
+            <p>{{ data.ncompte }}</p>
+            <p>{{ data.bic }}</p>
+            <p>{{ data.grd }}</p>
+            <p>{{ data.ncompteur }}</p>
+            <p>{{ data.ntva }}</p>
+            <p>{{ data.adress_de_facturation_adress }}</p>
+            <p>{{ data.adress_de_facturation_cp }}</p>
+            <p>{{ data.adress_de_facturation_localite }}</p>
+            <p>{{ data.adress_de_livraison_adress }}</p>
+            <p>{{ data.adress_de_livraison_cp }}</p>
+            <p>{{ data.adress_de_livraison_localite }}</p>
+            <p>{{ data.remarque_1 }}</p>
+            <p>{{ data.nombre_ppv }}</p>
+            <p>{{ data.type_ppv }}</p>
+            <p>{{ data.nombre_de_range_ppv }}</p>
+            <p>{{ data.nombre_pan_de_toiture }}</p>
+            <p>{{ data.nombre_ppv_toiture }}</p>
+            <p>{{ data.toiture }}</p>
+            <p>{{ data.sous_toiture }}</p>
+            <p>{{ data.type_de_corniche }}</p>
+            <p>{{ data.orientation }}</p>
+            <p>{{ data.hauteur_sous_corniche }}</p>
+            <p>{{ data.si_de7m_nacelle }}</p>
+            <p>{{ data.etat_du_toit }}</p>
+            <p>{{ data.les_panneaux_doivent_etre_installes }}</p>
+            <p>{{ data.acces_par_arriere_pour_passé }}</p>
+            <p>{{ data.si_pas_dacces_decrire_la_situation }}</p>
+            <p>{{ data.acces_libre_le_jour_du_chantier }}</p>
+            <p>{{ data.nombre_ppv_toiture3 }}</p>
+            <p>{{ data.type_de_compteur }}</p>
+            <p>{{ data.onduleurs }}</p>
+            <p>{{ data.Nombre_doptimiseur }}</p>
+            <p>{{ data.enphase }}</p>
+            <p>{{ data.gaine_technique_present }}</p>
+            <p>{{ data.espace_pres_du_coffret_pour_onduleur_meme_piece }}</p>
+            <p>{{ data.etat_de_linstallation }}</p>
+            <p>{{ data.prise_de_terre_controle_5_derniere_annes }}</p>
+            <p>{{ data.pressence_differentiel_general }}</p>
+            <p>{{ data.passage_de_cable_nbre_piece_a_traverser }}</p>
+            <p>{{ data.coffret_20_cm_disponible }}</p>
+            <p>{{ data.tranche }}</p>
+            <p>{{ data.nombre_de_metre_de_tranche }}</p>
+            <p>{{ data.le_client_se_charge_de_gaine }}</p>
+            <p>{{ data.nombre_de_metres_entre_onduleur_et_panneaux }}</p>
+            <p>{{ data.le_client_souheite_il_le_monitoring }}</p>
+            <p>{{ data.le_modem_est_il_dans_la_meme_piece_que_londuleur }}</p>
+            <p>{{ data.nombres_de_metres_du_modem_a_lonuduleur }}</p>
+            <p>{{ data.le_projet_sera_finance_par }}</p>
+            <p>{{ data.condition_de_paiement }}</p>
+            <p>{{ data.date_de_la_vt }}</p>
+            <p>{{ data.vt_effectue_par }}</p>
+            <p>{{ data.commentaire_technicien }}</p>
+            <p>{{ data.statut_vt }}</p>
+            <p>{{ data.coffret_general_conforme }}</p>
+            <p>{{ data.ajout_coffret_supp }}</p>
+            <p>{{ data.type_de_compteur }}</p>
+            <p>{{ data.differenciel_general }}</p>
+            <p>{{ data.prevoir_un_differentiel_general }}</p>
+            <p>{{ data.limiteur }}</p>
+            <p>{{ data.prevoir_un_limiteur }}</p>
+            <p>{{ data.test_de_la_terre }}</p>
+            <p>{{ data.nbr_de_metre_de_cable_a_prevoir }}</p>
+            <p>{{ data.monitoring }}</p>
+            <p>{{ data.modem_est_dans_la_meme_piece_que_londuleur }}</p>
+            <p>{{ data.analyse_modem }}</p>
+            <p>{{ data.type_de_toitur_prevu }}</p>
+            <p>{{ data.type_toiture_prevu_a_la_vt }}</p>
+            <p>{{ data.nbr_de_ppv }}</p>
+            <p>{{ data.nbr_de_ppv_a_la_vt }}</p>
+            <p>{{ data.ppv_en_portait }}</p>
+            <p>{{ data.ppv_en_paysage }}</p>
+            <p>{{ data.ppv_en_toiture_plate }}</p>
+            <p>{{ data.ppv_en_chevalet_jardin }}</p>
+            <p>{{ data.ppv_en_structure_jardin }}</p>
+            <p>{{ data.sous_toiture }}</p>
+            <p>{{ data.le_client_a_des_ardoise_tuiles_de_rechange }}</p>
+            <!-- Add other personal details -->
+        </div>
+    </div>
+    
+
+{% endblock content %}

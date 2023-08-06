@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Nom:</th>
+                    <th>Prenom:</th>
+                    <th>Email:</th>
+                    <th>Phone number</th>
+                    <th>Nom d'Utilisateur</th>
+                    <th>Mot de passe</th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                {%for i in data%}
+                <tr>
+                    <td> {{i.nom}}</td>
+                    <td>{{ i.prenom}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phone_number}}</td>
+                    <td>{{i.user.username}}</td>
+                    <td>{{i.password}}</td>
+                </tr>
+                {%endfor%}
+               
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{%endblock content%}

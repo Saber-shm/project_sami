@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+{%block content%}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="text-center">Recherche:</h1>
+        </div>
+        <br>
+        <div class="card-body">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name = "search" class="form-control">
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Rechercher <i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{%endblock content%}

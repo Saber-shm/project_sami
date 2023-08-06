@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .info-container {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .info-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .btn-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-container button {
+        margin-right: 10px;
+    }
+
+    .detail-section {
+        margin-bottom: 20px;
+    }
+
+    .detail-title {
+        font-weight: bold;
+    }
+
+    .email-section {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .email-left,
+    .email-right {
+        flex-basis: 48%;
+    }
+    .email-right p{
+        color: rgb(15, 15, 190);
+    }
+</style>
+
+<div class="info-container">
+    <div class="info-header">
+        <h1>Profile:</h1>
+        <hr>
+    </div>
+    <div class="btn-container">
+        <a class="btn btn-primary" href="{% url 'edit_profile' data.id %}">Modifier</a>
+    </div>
+    <hr>
+    <div class="detail-section">
+        <h2>Personal Details</h2>
+        <div class="email-section">
+            <div class="email-left">
+                <p class="detail-title">Nom:</p>
+                <p class="detail-title">Prénom:</p>
+                <p class="detail-title">Telephone:</p>
+                <p class="detail-title">Email:</p>
+
+                <!-- Add other personal details -->
+                <!-- Add other personal details -->
+            </div>
+            <div class="email-right">
+                <p>{{ data.nom }}</p>
+                <p>{{ data.prenom }}</p>
+                <p>{{ data.phone_number }}</p>
+                <p>{{data.email}}</p>
+                
+
+
+                <!-- Add other personal details -->
+                <!-- Add other personal details -->
+            </div>
+        </div>
+        <!-- Add more personal details here -->
+        <!-- Add more personal details here -->
+    </div>
+
+</div>
+<br>
+<h3 align = center>Photo:</h3>
+{%if data.picture%}
+    <div align = center>
+        <img src="{{data.picture.url}}" alt="" width="350" height="200">
+
+    </div>
+{%else%}
+<p>Pas de photo trouvé</p>
+{%endif%}
+
+{% endblock content %}
