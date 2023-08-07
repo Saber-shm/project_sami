@@ -154,6 +154,7 @@ def search_method_result(request,result):
     if request.user.is_authenticated:
         result = result.split('|')
         print(result)
+        data = None
         method = result[-1]
         if method == "email":
             data = Order.objects.filter(email__contains = result[0])
