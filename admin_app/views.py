@@ -823,14 +823,11 @@ def search_method_result(request,result):
         print(result)
         method = result[-1]
         data = None  # Initialize data to None
-        if method == "email":
-            data2 = Order.objects.filter(email__contains=result[0])
-            return render(request, 'search_result.html', {"data": data2})
+        data2 = Order.objects.filter(email__contains=result[0])
+        return render(request, 'search_result.html', {"data": data2})
 
 
-        elif method == "nom":
-            data4 = Order.objects.filter(nom__contains=result[0])
-            return render(request, 'search_result.html', {"data": data4})
+
     else:
         return redirect("login_user")
 """        elif method == "pn":
