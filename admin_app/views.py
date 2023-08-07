@@ -822,7 +822,6 @@ def search_method_result(request,result):
         result = result.split('|')
         print(result)
         method = result[-1]
-        data = None  # Initialize data to None
         data2 = Order.objects.filter(email__contains=result[0])
         return render(request, 'search_result.html', {"data": data2})
 
