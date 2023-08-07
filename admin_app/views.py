@@ -827,8 +827,7 @@ def search_method_result(request,result):
             data = Order.objects.filter(email__contains = result[0])
         elif method == "pn":
             data = Order.objects.filter(ntel = result[0])
-        elif method == "nom":
-            data = Order.objects.filter(nom__contains = result[0])
+
         return render(request,'search_result.html',{"data":data})
 
     else:
