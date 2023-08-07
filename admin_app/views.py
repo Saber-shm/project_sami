@@ -820,14 +820,8 @@ def search_form(request,method):
 def search_method_result(request,result):
     if request.user.is_authenticated:
         result1 = result.split('|')
-        print(result)
         method = result1[-1]
-        if method == "email":
-            resulte = Order.objects.filter(email__contains = result[0])
-        elif method == "pn":
-            resulte = Order.objects.filter(ntel = result[0])
-        elif method == "nom":
-            resulte = Order.objects.filter(nom__contains = result[0])
+        resulte = Order.objects.all()
         return render(request,'search_result.html',{"resulte":resulte})
 
     else:
