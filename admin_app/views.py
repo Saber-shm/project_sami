@@ -819,15 +819,19 @@ def search_form(request,method):
         return redirect("login_user")
 def search_method_result(request,result):
     if request.user.is_authenticated:
-        result = result.split('|')
+        result1 = result.split('|')
         print(result)
-        method = result[-1]
-        data2 = Order.objects.filter(email__contains=result[0])
-        return render(request, 'search_result.html', {"data": data2})
+        method = result1[-1]
+        if method == "email":
+            result = Order.objects.filter(email__contains = result[0])
+        elif method == "pn":
+            result = Order.objects.filter(ntel = result[0])
+        elif method == "nom":
+            result = Order.objects.filter(nom__contains = result[0])
+        return render(request,'search_result_method.html',{"result":data})
 
     else:
         return redirect("login_user")
-
 def add_remarque(request,ordre_id):
     if request.user.is_authenticated:
         ordre = Order.objects.get(pk = ordre_id)
