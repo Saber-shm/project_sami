@@ -828,7 +828,7 @@ def search_method_result(request,result):
             result = Order.objects.filter(ntel = result[0])
         elif method == "nom":
             result = Order.objects.filter(nom__contains = result[0])
-        return render(request,'search_result_method.html',{"result":data})
+        return render(request,'search_result_method.html',{"result":result})
 
     else:
         return redirect("login_user")
