@@ -601,6 +601,8 @@ def home_page(request):
         data = reversed(data)
         if request.method == "POST":
             search_ = request.POST["search"]
+            if len(search_) == 0:
+                return redirect("home_page")
             return redirect("search_result", search = search_)
 
         return render(request,"home.html",{"data":data})
