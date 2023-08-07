@@ -822,6 +822,7 @@ def search_method_result(request,result):
         result = result.split('|')
         print(result)
         method = result[-1]
+        data = None
         if method == "email":
             data = Order.objects.filter(email__contains = result[0])
         elif method == "pn":
