@@ -824,16 +824,16 @@ def search_method_result(request,result):
         method = result[-1]
         data = None  # Initialize data to None
         if method == "email":
-            data = Order.objects.filter(email__contains=result[0])
-            return render(request, 'search_result.html', {"data": data})
+            data2 = Order.objects.filter(email__contains=result[0])
+            return render(request, 'search_result.html', {"data": data2})
 
         elif method == "pn":
-            data = Order.objects.filter(ntel=result[0])
-            return render(request, 'search_result.html', {"data": data})
+            data3 = Order.objects.filter(ntel=result[0])
+            return render(request, 'search_result.html', {"data": data3})
 
         elif method == "nom":
-            data = Order.objects.filter(nom__contains=result[0])
-            return render(request, 'search_result.html', {"data": data})
+            data4 = Order.objects.filter(nom__contains=result[0])
+            return render(request, 'search_result.html', {"data": data4})
     else:
         return redirect("login_user")
 def add_remarque(request,ordre_id):
