@@ -827,10 +827,10 @@ def search_method_result(request,result):
             data2 = Order.objects.filter(email__contains=result[0])
             return render(request, 'search_result.html', {"data": data2})
 
-        elif method == "pn":
+"""        elif method == "pn":
             data3 = Order.objects.filter(ntel=result[0])
             return render(request, 'search_result.html', {"data": data3})
-
+"""
         elif method == "nom":
             data4 = Order.objects.filter(nom__contains=result[0])
             return render(request, 'search_result.html', {"data": data4})
