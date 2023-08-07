@@ -603,6 +603,7 @@ def home_page(request):
             search_ = request.POST["search"]
             if len(search_) == 0:
                 return redirect("home_page")
+            
             return redirect("search_result", search = search_)
 
         return render(request,"home.html",{"data":data})
@@ -823,6 +824,7 @@ def search_method_result(request,result):
     if request.user.is_authenticated:
         result1 = result.split('|')
         method = result1[-1]
+        resulte = None
         if method == "email":
             resulte = Order.objects.filter(email__contains = result[0])
         elif method == "pn":
