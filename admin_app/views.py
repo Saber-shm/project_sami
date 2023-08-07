@@ -622,9 +622,10 @@ def details_view(request,ordre_id):
         admin_user_info = Administrateur.objects.get(user = request.user)
         sav = SAV.objects.filter(ordre = ordre_id)
         sav_bool = False
+        ordre_data = Order.objects.get(pk = ordre_id)
+
         if len(list(sav)) > 0:
             sav_bool = True
-        ordre_data = Order.objects.get(pk = ordre_id)
         return render(request,'details_view.html',{"data":ordre_data,"sav": sav_bool})
     else:
         return redirect("login_user")
@@ -866,7 +867,7 @@ def add_sav(request,ordre_id):
                 sav.posted_by = request.user
                 sav.ordre = ordre
                 sav.save()
-                return redirect("detail_view", ordre_id = ordre_id)
+                return redirect("details_view", ordre_id = ordre_id)
         else:
             form = add_sav_form
         return render(request,'add_sav_form.html',{"form":form})

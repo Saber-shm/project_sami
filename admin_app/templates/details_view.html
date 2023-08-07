@@ -68,13 +68,14 @@
         <br>
         <a class="btn btn-primary" href="{%url 'images' data.id%}">Voir les photos</a>
         <a class="btn btn-danger" href="{% url 'delete_ordre' data.id %}">Supprimer</a>
-        <br><br>
 
         {%if sav%}
+        <br><br>
+
         <a class="btn btn-success" href= "{%url 'generate_sav' data.id%}">Télécharger SAV</a>
+        <br><br>
 
         {%else%}
-        <br><br>
         <a class="btn btn-primary" href = "{%url 'add_sav' data.id%}">Ajouter sav</a>
 
         <br><br>
