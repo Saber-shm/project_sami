@@ -31,7 +31,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{%url 'logoutt'%}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{%url 'logoutt'%}">Se déconnecter</a></li>
                     </ul>
                 </li>
             </ul>
@@ -44,7 +44,7 @@
                             <div class="sb-sidenav-menu-heading">Sami:</div>
                             <a class="nav-link" href="{%url 'tech_home_page'%}">
                                 <div class="sb-nav-link-icon"></div>
-                                Home
+                                Accueil
                             </a>
 
                      
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
+                        <div class="small">Connecté en tant que::</div>
                         {{request.user.username}}
                     </div>
                 </nav>
@@ -74,7 +74,7 @@
                                     <div class="card-body">{{i.nom}} {{i.prenom}}</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
 
-                                        <a class="small text-white stretched-link" href="{% url 'tech_details_view' i.id%}" align>voir les détails</a>
+                                        <a class="small text-white stretched-link" href="{% url 'tech_details_view' i.id%}" align>Voir les détails</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

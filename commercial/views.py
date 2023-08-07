@@ -106,7 +106,7 @@ def edit_ordre(request,ordre_id):
         if form.is_valid():
             form.save()
             return redirect("commercial_details_view",ordre_id)
-        return render(request,"edit_ordre.html",{"form": form})
+        return render(request,"commercial_edit_ordre.html",{"form": form})
     else:
         return redirect("login_user")
 def add_sav(request,ordre_id):
@@ -186,6 +186,6 @@ def see_remarque(request,ordre_id):
     if request.user.is_authenticated:
         ordre = Order.objects.get(pk = ordre_id)
         data = Remarque.objects.filter(ordre = ordre)
-        return render(request,"remarque.html",{"data":data})
+        return render(request,"commercial_see_remarque.html",{"data":data})
     else:
         return redirect("login_user")

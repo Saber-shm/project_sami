@@ -39,6 +39,10 @@ class add_remarque_form(forms.ModelForm):
         model = Remarque
         fields = "__all__"
         exclude = ["posted_by", "ordre"]
+        widgets = {
+            "text": forms.Textarea(attrs= {"class":"form-control"})
+        }
+
     def save(self,commit = True,posted_by = None,ordre = None):
         instance = super().save(commit = False)
         instance.posted_by = posted_by
@@ -80,6 +84,18 @@ class add_ordre_form(forms.ModelForm):
                 'nom': forms.TextInput(attrs={'class': 'form-control'}),
                 'prenom': forms.TextInput(attrs={'class': 'form-control'}),
                 'adresse': forms.TextInput(attrs={'class': 'form-control'}),
+                "remarque_1": forms.Textarea(attrs = {"class": "form-control"}),
+                "nombre_ppv_toiture_1":forms.TextInput(attrs={'class': 'form-control'}),
+                "toiture_3":forms.TextInput(attrs={'class': 'form-control'}),
+                "tuile_rechage" : forms.TextInput(attrs={'class': 'form-control'}),
+                "nombre_ppv_toiture_2": forms.TextInput(attrs={'class': 'form-control'}),
+                "si_pas_dacces_decrire_la_situation" : forms.TextInput(attrs={'class': 'form-control'}),
+                "nombre_ppv_toiture_3" : forms.TextInput(attrs={'class': 'form-control'}),
+                "onduleur_1": forms.TextInput(attrs={'class': 'form-control'}),
+                "onduleur_2": forms.TextInput(attrs={'class': 'form-control'}),
+                "onduleur_3": forms.TextInput(attrs={'class': 'form-control'}),
+                "type_de_cable":forms.TextInput(attrs={'class': 'form-control'}),
+                "sous_toiture_2": forms.TextInput(attrs={'class': 'form-control'}),
                 'cp': forms.TextInput(attrs={'class': 'form-control'}),
                 'localite': forms.TextInput(attrs={'class': 'form-control'}),
                 'ngsm': forms.TextInput(attrs={'class': 'form-control'}),

@@ -135,13 +135,13 @@ def add_remarque(request,ordre_id):
                 return redirect("tech_details_view",ordre_id = ordre_id)
         else:
             form = add_remarque_form
-        return render(request,'commercial_add_remarque.html',{"form": form})
+        return render(request,'tech_add_remarque.html',{"form": form})
     else:
         return redirect("login_user")
 def see_remarque(request,ordre_id):
     if request.user.is_authenticated:
         ordre = Order.objects.get(pk = ordre_id)
         data = Remarque.objects.filter(ordre = ordre)
-        return render(request,"remarque.html",{"data":data})
+        return render(request,"tech_remarque.html",{"data":data})
     else:
         return redirect("login_user")
