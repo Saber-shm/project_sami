@@ -615,7 +615,7 @@ def search_result(request,search):
         if request.method == "POST":
             search_ = request.POST["search"]
             return redirect("search_result", search = search_)
-        return render(request,"home.html",{"data":search_query})
+        return render(request,"home.html",{"result":search_query})
 
 def details_view(request,ordre_id):
     if request.user.is_authenticated:
@@ -828,7 +828,7 @@ def search_method_result(request,result):
             result = Order.objects.filter(ntel = result[0])
         elif method == "nom":
             result = Order.objects.filter(nom__contains = result[0])
-        return render(request,'search_result_method.html',{"result":result})
+        return render(request,'search_result.html',{"result":result})
 
     else:
         return redirect("login_user")
