@@ -823,12 +823,12 @@ def search_method_result(request,result):
         print(result)
         method = result1[-1]
         if method == "email":
-            result = Order.objects.filter(email__contains = result[0])
+            resulte = Order.objects.filter(email__contains = result[0])
         elif method == "pn":
-            result = Order.objects.filter(ntel = result[0])
+            resulte = Order.objects.filter(ntel = result[0])
         elif method == "nom":
-            result = Order.objects.filter(nom__contains = result[0])
-        return render(request,'search_result.html',{"result":result})
+            resulte = Order.objects.filter(nom__contains = result[0])
+        return render(request,'search_result.html',{"result":resulte})
 
     else:
         return redirect("login_user")
