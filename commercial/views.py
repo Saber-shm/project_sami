@@ -140,13 +140,13 @@ def search_form(request,method):
             search = request.POST["search"]
             if method == "email":
                 data_email = f"{search}|{method}"
-                return redirect("commercial_search_method_result",result = data_email)
+                return redirect("commercial_search_result",result = data_email)
             elif method == "nom":
                 data_nom = f"{search}|{method}"
-                return redirect("commercial_search_method_result",result = data_nom)
+                return redirect("commercial_search_result",result = data_nom)
             elif method =="pn":
                 data_pn = f"{search}|{method}"
-                return redirect("commercial_search_method_result", result = data_pn)
+                return redirect("commercial_search_result", result = data_pn)
         return render(request,"commercial_search_form.html",{"method" : method})
     else:
         return redirect("login_user")
