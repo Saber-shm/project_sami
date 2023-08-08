@@ -826,7 +826,7 @@ def search_method_result(request,result):
         method = result1[-1]
         resulte = None
         if method == "email":
-            resulte = Order.objects.filter(email__contains = result[0])
+            resulte = Order.objects.filter(email = result[0])
         elif method == "pn":
             resulte = Order.objects.filter(ntel = result[0])
         elif method == "nom":
