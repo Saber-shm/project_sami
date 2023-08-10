@@ -826,11 +826,13 @@ def search_method_result(request,result):
         method = result1[-1]
         resulte = None
         if method == "email":
-            resulte = Order.objects.filter(email = result[0])
+            resulte = Order.objects.filter(nom = "test")
+            print(resulte)
         elif method == "pn":
             resulte = Order.objects.filter(ntel = result[0])
         elif method == "nom":
-            resulte = Order.objects.filter(nom__contains = result[0])
+            resulte = Order.objects.filter(nom = result[0])
+            print(resulte)
         return render(request,'search_result.html',{"resulte":resulte})
 
     else:
