@@ -37,6 +37,5 @@ def login_user(request):
     return render(request,"login_user.html",{}) 
 
 def logout_user(request):
-    print(request.user)
     logout(request)
     return redirect("login_user")
